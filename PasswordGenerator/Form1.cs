@@ -15,6 +15,20 @@ namespace PasswordGenerator
 
         bool[] check = { false, false, false, false };
 
+        //bounds for the random char generator:
+        //lowercase -> 97 to 122  (check[0])
+        int lowercaseCharacterStart = 97;
+        int lowercaseCharacterEnd = 122;
+        //uppercase -> 65 to 90   (check[1])
+        int uppercaseCharacterStart = 65;
+        int uppercaseCharacterEnd = 90;
+        //numbers ---> 48 to 57   (check[2])
+        int numbersCharacterStart = 48;
+        int numbersCharacterEnd = 57;
+        //symbols ---> 33 to 47   (check[3])
+        int symbolsCharacterStart = 33;
+        int symbolsCharacterEnd = 47;
+
         public Form1()
         {
             InitializeComponent();
@@ -22,30 +36,9 @@ namespace PasswordGenerator
 
         private void buttonGenerate_Click(object sender, EventArgs e)
         {
-            //lowercase -> 97 to 122  (check[0])
-            //uppercase -> 65 to 90   (check[1])
-            //numbers ---> 48 to 57   (check[2])
-            //symbols ---> 33 to 47   (check[3])
-
-            //generate 4 different strings (if all options are selected) then shuffle them
-            //how to manage size? . . .
-
-            //bounds for the random char generator:
-            //lowercase
-            int lowercaseCharacterStart = 97;
-            int lowercaseCharacterEnd = 122;
-            //uppercase
-            int uppercaseCharacterStart = 97;
-            int uppercaseCharacterEnd = 122;
-            //numbers
-            int numbersCharacterStart = 97;
-            int numbersCharacterEnd = 122;
-            //symbols
-            int symbolsCharacterStart = 97;
-            int symbolsCharacterEnd = 122;
-
             Random random = new Random(DateTime.Now.Millisecond);
-            char randomChar;
+            StringBuilder password = new StringBuilder();
+            int countChecked = 0, howManyEach = 0;
 
 
             //size
@@ -55,22 +48,46 @@ namespace PasswordGenerator
                 int.TryParse(textSize.Text, out size);
             }
 
-            if(size < 6)
+            if (size < 6)
             {
                 MessageBox.Show("The minimum size is 6");
             }
             else
             {
-                for (int i = 0; i < size; i++)
+                //check what is checked
+                if (checkboxLowercase.Checked)
                 {
-                    randomChar = random.Next()
+                    check[0] = true;
+                    countChecked++;
+                }
+                if (checkboxUppercase.Checked)
+                {
+                    check[1] = true;
+                    countChecked++;
+                } 
+                if (checkboxNumbers.Checked)
+                {
+                    check[2] = true;
+                    countChecked++;
+                }
+                if (checkboxSymbols.Checked)
+                {
+                    check[3] = true;
+                    countChecked++;
                 }
 
+                //  size / countChecked
+                howManyEach = size / countChecked;
 
-
-
-
-                textPassword.Text = "password";
+                for (int i = 0; i < size; i++)
+                {
+                    random.Next(0, 3);
+                    password.Append((char)random.Next(lowercaseCharacterStart, lowercaseCharacterEnd));
+                    password.Append((char)random.Next(uppercaseCharacterStart, uppercaseCharacterEnd));
+                    password.Append((char)random.Next(numbersCharacterStart, numbersCharacterEnd));
+                    password.Append((char)random.Next(symbolsCharacterStart, symbolsCharacterEnd));
+                }
+                textPassword.Text = howManyEach.ToString();
             }
         }
 
