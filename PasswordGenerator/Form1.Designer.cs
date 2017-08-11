@@ -93,6 +93,7 @@
             this.checkboxLowercase.TabIndex = 9;
             this.checkboxLowercase.Text = "Lowercase Letters";
             this.checkboxLowercase.UseVisualStyleBackColor = true;
+            this.checkboxLowercase.CheckedChanged += new System.EventHandler(this.checkboxLowercase_CheckedChanged);
             // 
             // checkboxUppercase
             // 
