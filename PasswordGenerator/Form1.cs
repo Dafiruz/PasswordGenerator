@@ -78,6 +78,10 @@ namespace PasswordGenerator
 
                 //  size / countChecked
                 howManyEach = size / countChecked;
+                // then for (each one lacking)
+                // if size = 23 and 4 options selected
+                // 3 missing
+                //generate lowecase until = size (23)
 
                 for (int i = 0; i < size; i++)
                 {
