@@ -38,8 +38,6 @@ namespace PasswordGenerator
         {
             Random random = new Random(DateTime.Now.Millisecond);
             StringBuilder password = new StringBuilder();
-            int countChecked = 0, howManyEach = 0;
-
 
             //size
             int size = 0;
@@ -54,50 +52,25 @@ namespace PasswordGenerator
             }
             else
             {
-                //check what is checked
-                if (checkboxLowercase.Checked)
-                {
-                    check[0] = true;
-                    countChecked++;
-                }
-                if (checkboxUppercase.Checked)
-                {
-                    check[1] = true;
-                    countChecked++;
-                } 
-                if (checkboxNumbers.Checked)
-                {
-                    check[2] = true;
-                    countChecked++;
-                }
-                if (checkboxSymbols.Checked)
-                {
-                    check[3] = true;
-                    countChecked++;
-                }
-
-                //  size / countChecked
-                howManyEach = size / countChecked;
-                // then for (each one lacking)
-                // if size = 23 and 4 options selected
-                // 3 missing
-                //generate lowecase until = size (23)
-
+                //generate the string (can become 4 times the right size (should be changed))
                 for (int i = 0; i < size; i++)
                 {
-                    random.Next(0, 3);
-                    password.Append((char)random.Next(lowercaseCharacterStart, lowercaseCharacterEnd));
-                    password.Append((char)random.Next(uppercaseCharacterStart, uppercaseCharacterEnd));
-                    password.Append((char)random.Next(numbersCharacterStart, numbersCharacterEnd));
-                    password.Append((char)random.Next(symbolsCharacterStart, symbolsCharacterEnd));
+                    if (checkboxLowercase.Checked)
+                        password.Append((char)random.Next(lowercaseCharacterStart, lowercaseCharacterEnd));
+
+                    if (checkboxUppercase.Checked)
+                        password.Append((char)random.Next(uppercaseCharacterStart, uppercaseCharacterEnd));
+
+                    if (checkboxNumbers.Checked)
+                        password.Append((char)random.Next(numbersCharacterStart, numbersCharacterEnd));
+
+                    if (checkboxSymbols.Checked)
+                        password.Append((char)random.Next(symbolsCharacterStart, symbolsCharacterEnd));
                 }
-                textPassword.Text = howManyEach.ToString();
+
+                //cut the string so it's actually the right size
+                textPassword.Text = password.ToString().Substring(password.ToString().Length - size);
             }
-        }
-
-        private void checkboxLowercase_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
