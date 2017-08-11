@@ -38,6 +38,7 @@
             this.checkboxUppercase = new System.Windows.Forms.CheckBox();
             this.checkboxNumbers = new System.Windows.Forms.CheckBox();
             this.checkboxSymbols = new System.Windows.Forms.CheckBox();
+            this.buttonCopyToClipboard = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelOptions
@@ -124,12 +125,23 @@
             this.checkboxSymbols.Text = "Symbols";
             this.checkboxSymbols.UseVisualStyleBackColor = true;
             // 
+            // buttonCopyToClipboard
+            // 
+            this.buttonCopyToClipboard.Location = new System.Drawing.Point(91, 139);
+            this.buttonCopyToClipboard.Name = "buttonCopyToClipboard";
+            this.buttonCopyToClipboard.Size = new System.Drawing.Size(101, 23);
+            this.buttonCopyToClipboard.TabIndex = 13;
+            this.buttonCopyToClipboard.Text = "Copy to Clipboard";
+            this.buttonCopyToClipboard.UseVisualStyleBackColor = true;
+            this.buttonCopyToClipboard.Click += new System.EventHandler(this.buttonCopyToClipboard_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.ClientSize = new System.Drawing.Size(289, 146);
+            this.ClientSize = new System.Drawing.Size(289, 168);
+            this.Controls.Add(this.buttonCopyToClipboard);
             this.Controls.Add(this.checkboxSymbols);
             this.Controls.Add(this.checkboxNumbers);
             this.Controls.Add(this.checkboxUppercase);
@@ -157,6 +169,7 @@
         private System.Windows.Forms.CheckBox checkboxUppercase;
         private System.Windows.Forms.CheckBox checkboxNumbers;
         private System.Windows.Forms.CheckBox checkboxSymbols;
+        private System.Windows.Forms.Button buttonCopyToClipboard;
     }
 }
 

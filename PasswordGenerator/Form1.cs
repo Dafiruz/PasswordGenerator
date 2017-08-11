@@ -78,5 +78,10 @@ namespace PasswordGenerator
                 textPassword.Text = password.ToString().Substring(password.ToString().Length - size);
             }
         }
+
+        private void buttonCopyToClipboard_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(textPassword.Text);
+        }
     }
 }
