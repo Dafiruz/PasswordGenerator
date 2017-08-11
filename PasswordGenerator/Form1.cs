@@ -8,6 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+#region TO DO
+// shuffle the final string
+// add a "Copy to Clipboard" Button (CTRL + C)
+#endregion
+
 namespace PasswordGenerator
 {
     public partial class Form1 : Form
@@ -15,7 +21,7 @@ namespace PasswordGenerator
 
         bool[] check = { false, false, false, false };
 
-        //bounds for the random char generator:
+        #region bounds for the random char generator:
         //lowercase -> 97 to 122  (check[0])
         int lowercaseCharacterStart = 97;
         int lowercaseCharacterEnd = 122;
@@ -28,6 +34,7 @@ namespace PasswordGenerator
         //symbols ---> 33 to 47   (check[3])
         int symbolsCharacterStart = 33;
         int symbolsCharacterEnd = 47;
+        #endregion
 
         public Form1()
         {
@@ -38,18 +45,17 @@ namespace PasswordGenerator
         {
             Random random = new Random(DateTime.Now.Millisecond);
             StringBuilder password = new StringBuilder();
-
-            //size
             int size = 0;
+
             if(textSize.Text != "")
-            {
                 int.TryParse(textSize.Text, out size);
-            }
+            else
+                MessageBox.Show("Size is mandatory!");
 
             if (size < 6)
-            {
                 MessageBox.Show("The minimum size is 6");
-            }
+            else if(!checkboxLowercase.Checked && !checkboxUppercase.Checked && !checkboxNumbers.Checked && !checkboxSymbols.Checked)
+                MessageBox.Show("Pick at least an option!");
             else
             {
                 //generate the string (can become 4 times the right size (should be changed))
