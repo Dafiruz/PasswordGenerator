@@ -105,8 +105,7 @@ namespace PasswordGenerator
                 shuffled[i] = aux;
             }
 
-
-            return shuffled.ToString();
+            return new string(shuffled);
         }
 
         private void buttonShuffle_Click(object sender, EventArgs e)
