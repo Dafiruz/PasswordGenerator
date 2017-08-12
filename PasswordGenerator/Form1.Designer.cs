@@ -64,7 +64,7 @@
             // 
             // textPassword
             // 
-            this.textPassword.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.textPassword.BackColor = System.Drawing.SystemColors.Window;
             this.textPassword.Location = new System.Drawing.Point(12, 113);
             this.textPassword.Name = "textPassword";
             this.textPassword.Size = new System.Drawing.Size(265, 20);
@@ -128,29 +128,31 @@
             // 
             // buttonCopyToClipboard
             // 
+            this.buttonCopyToClipboard.BackColor = System.Drawing.Color.YellowGreen;
             this.buttonCopyToClipboard.Location = new System.Drawing.Point(145, 139);
             this.buttonCopyToClipboard.Name = "buttonCopyToClipboard";
             this.buttonCopyToClipboard.Size = new System.Drawing.Size(101, 23);
             this.buttonCopyToClipboard.TabIndex = 13;
             this.buttonCopyToClipboard.Text = "Copy to Clipboard";
-            this.buttonCopyToClipboard.UseVisualStyleBackColor = true;
+            this.buttonCopyToClipboard.UseVisualStyleBackColor = false;
             this.buttonCopyToClipboard.Click += new System.EventHandler(this.buttonCopyToClipboard_Click);
             // 
             // buttonShuffle
             // 
+            this.buttonShuffle.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.buttonShuffle.Location = new System.Drawing.Point(41, 139);
             this.buttonShuffle.Name = "buttonShuffle";
             this.buttonShuffle.Size = new System.Drawing.Size(75, 23);
             this.buttonShuffle.TabIndex = 14;
             this.buttonShuffle.Text = "Shuffle";
-            this.buttonShuffle.UseVisualStyleBackColor = true;
+            this.buttonShuffle.UseVisualStyleBackColor = false;
             this.buttonShuffle.Click += new System.EventHandler(this.buttonShuffle_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(289, 168);
             this.Controls.Add(this.buttonShuffle);
             this.Controls.Add(this.buttonCopyToClipboard);
@@ -163,6 +165,7 @@
             this.Controls.Add(this.textPassword);
             this.Controls.Add(this.buttonGenerate);
             this.Controls.Add(this.labelOptions);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "Form1";
             this.Text = "Password Generator";
             this.ResumeLayout(false);
