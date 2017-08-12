@@ -94,12 +94,15 @@ namespace PasswordGenerator
         {
             int size = str.Length;
             char[] shuffled = str.ToCharArray();
+            char aux;
             int pos;
 
             for (int i = 0; i < size; i++)
             {
                 pos = random.Next(0, size);
-
+                aux = shuffled[pos];
+                shuffled[pos] = shuffled[i];
+                shuffled[i] = aux;
             }
 
 
