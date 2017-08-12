@@ -11,27 +11,26 @@ using System.Windows.Forms;
 
 #region TO DO
 // shuffle the final string
-// add a "Copy to Clipboard" Button (CTRL + C)
 #endregion
 
 namespace PasswordGenerator
 {
     public partial class Form1 : Form
     {
-
+        Random random = new Random(DateTime.Now.Millisecond);
         bool[] check = { false, false, false, false };
 
         #region bounds for the random char generator:
-        //lowercase -> 97 to 122  (check[0])
+        //lowercase -> 97 to 122
         int lowercaseCharacterStart = 97;
         int lowercaseCharacterEnd = 122;
-        //uppercase -> 65 to 90   (check[1])
+        //uppercase -> 65 to 90
         int uppercaseCharacterStart = 65;
         int uppercaseCharacterEnd = 90;
-        //numbers ---> 48 to 57   (check[2])
+        //numbers ---> 48 to 57
         int numbersCharacterStart = 48;
         int numbersCharacterEnd = 57;
-        //symbols ---> 33 to 47   (check[3])
+        //symbols ---> 33 to 47
         int symbolsCharacterStart = 33;
         int symbolsCharacterEnd = 47;
         #endregion
@@ -43,8 +42,8 @@ namespace PasswordGenerator
 
         private void buttonGenerate_Click(object sender, EventArgs e)
         {
-            Random random = new Random(DateTime.Now.Millisecond);
             StringBuilder password = new StringBuilder();
+            string finalString;
             int size = 0;
 
             if(textSize.Text != "")
@@ -75,13 +74,41 @@ namespace PasswordGenerator
                 }
 
                 //cut the string so it's actually the right size
-                textPassword.Text = password.ToString().Substring(password.ToString().Length - size);
+                finalString = password.ToString().Substring(password.ToString().Length - size);
+
+                //shuffle the string
+                finalString = shuffle(finalString);
+
+                //show the string
+                textPassword.Text = finalString;
             }
         }
 
         private void buttonCopyToClipboard_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(textPassword.Text);
+            //MessageBox.Show("Password Copied to Clipboard!");
+        }
+
+        public string shuffle(string str)
+        {
+            int size = str.Length;
+            char[] shuffled = str.ToCharArray();
+            int pos;
+
+            for (int i = 0; i < size; i++)
+            {
+                pos = random.Next(0, size);
+
+            }
+
+
+            return shuffled.ToString();
+        }
+
+        private void buttonShuffle_Click(object sender, EventArgs e)
+        {
+            textPassword.Text = shuffle(textPassword.Text);
         }
     }
 }

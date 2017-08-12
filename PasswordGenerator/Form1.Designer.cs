@@ -39,6 +39,7 @@
             this.checkboxNumbers = new System.Windows.Forms.CheckBox();
             this.checkboxSymbols = new System.Windows.Forms.CheckBox();
             this.buttonCopyToClipboard = new System.Windows.Forms.Button();
+            this.buttonShuffle = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelOptions
@@ -52,7 +53,7 @@
             // 
             // buttonGenerate
             // 
-            this.buttonGenerate.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.buttonGenerate.BackColor = System.Drawing.Color.Moccasin;
             this.buttonGenerate.Location = new System.Drawing.Point(107, 84);
             this.buttonGenerate.Name = "buttonGenerate";
             this.buttonGenerate.Size = new System.Drawing.Size(75, 23);
@@ -127,7 +128,7 @@
             // 
             // buttonCopyToClipboard
             // 
-            this.buttonCopyToClipboard.Location = new System.Drawing.Point(91, 139);
+            this.buttonCopyToClipboard.Location = new System.Drawing.Point(145, 139);
             this.buttonCopyToClipboard.Name = "buttonCopyToClipboard";
             this.buttonCopyToClipboard.Size = new System.Drawing.Size(101, 23);
             this.buttonCopyToClipboard.TabIndex = 13;
@@ -135,12 +136,23 @@
             this.buttonCopyToClipboard.UseVisualStyleBackColor = true;
             this.buttonCopyToClipboard.Click += new System.EventHandler(this.buttonCopyToClipboard_Click);
             // 
+            // buttonShuffle
+            // 
+            this.buttonShuffle.Location = new System.Drawing.Point(41, 139);
+            this.buttonShuffle.Name = "buttonShuffle";
+            this.buttonShuffle.Size = new System.Drawing.Size(75, 23);
+            this.buttonShuffle.TabIndex = 14;
+            this.buttonShuffle.Text = "Shuffle";
+            this.buttonShuffle.UseVisualStyleBackColor = true;
+            this.buttonShuffle.Click += new System.EventHandler(this.buttonShuffle_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(289, 168);
+            this.Controls.Add(this.buttonShuffle);
             this.Controls.Add(this.buttonCopyToClipboard);
             this.Controls.Add(this.checkboxSymbols);
             this.Controls.Add(this.checkboxNumbers);
@@ -170,6 +182,7 @@
         private System.Windows.Forms.CheckBox checkboxNumbers;
         private System.Windows.Forms.CheckBox checkboxSymbols;
         private System.Windows.Forms.Button buttonCopyToClipboard;
+        private System.Windows.Forms.Button buttonShuffle;
     }
 }
 
